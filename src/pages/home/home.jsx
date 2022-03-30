@@ -14,20 +14,20 @@ const Home = () =>
           
         {
             categoryList.map((item) => (
-            <span className= "img-text-center" key={item.id}>
-                <img src={item.image} className="img-responsive" alt="catagory image" />
+            <span className= "img-text-center" key={item._id}>
+                <img src={item.image} className="img-responsive" alt="catagory_image" />
                 <p className="img-text"><b>{item.categoryName}</b></p>
             </span>
             ))
         }
         </header>
         <main className="img-btn-center">
-            <img src={heroImg} className="img-responsive " alt="" />
+            <img src={heroImg} className="img-responsive " alt="hero_img" />
             <button className="btn btn-img-right"><b><Link to="/productlist" className="no-decoration color-white">Start Shopping</Link></b></button>
         </main>
         <div className="block1">
             <div className="card-horizontal">
-                <img className="card-img" src={pendantCat} alt="home-pg image" />
+                <img className="card-img" src={pendantCat} alt="home_pg_image" />
                 <div className="card-info">
                     <div className="title">
                         <p className="desc">NEW ARRIVALS</p>
@@ -39,7 +39,7 @@ const Home = () =>
         </div>
         <div className="block2">
             <div className="card-horizontal">
-                <img className="card-img" src={pendantCat} alt="card image" />
+                <img className="card-img" src={pendantCat} alt="card_image" />
                 <div className="card-info">
                     <div className="title">
                         <p className="desc">NEW ARRIVALS</p>
