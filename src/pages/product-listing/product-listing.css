@@ -1,0 +1,74 @@
+.product-card-button
+{
+    background-color: var(--gold-color);
+    border-radius: 0px;
+    color:var(--white);
+    width: 100%; 
+}
+.badge
+{
+    border-radius: 50%;
+    margin-left: 78%;
+    margin-top: 4%;
+    background-color: var(--gold-light);
+    color: var(--black-light);
+    font-size: 1.5rem;
+}
+.rating-text
+{
+    margin-left: 13%;
+    font-size: 1rem;
+}
+.rated
+{
+    color: var(--gold-color);
+}
+
+.prod-page
+{
+    margin-top: 3rem;
+    display: grid;
+    width: 91%;
+    margin-left: 2%;
+    grid-row-gap: 2.5rem;
+    grid-template-areas: "aside main";
+    grid-template-rows: 1fr;
+    grid-template-columns: 230px 1fr 2%;
+    height: 100vh;
+}
+.aside{
+    padding: 1.2rem;
+    grid-area: aside;
+}
+main{
+    grid-area: main;   
+}
+main h2{
+    padding: 0rem 0rem 1rem 2rem;
+}
+.products
+{
+    margin-left: 2.5rem;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-row-gap: 1rem;
+}
+.title h3{
+    color:var(--black-light);
+    font-size: 1.5rem;
+}
+.filter
+{
+    display: flex;
+    justify-content: space-between;
+}
+.filter-item
+{
+    padding-top: 1rem;
+}
+.check-box,.radio-btn
+{
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-right: 0.3rem;  
+}
