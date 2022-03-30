@@ -1,0 +1,43 @@
+.icon-outline {
+    color: transparent;
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: var(--black-light);
+  }
+  
+  .basic-navbar {
+    background-color: var(--gold-light);
+    color: var(--black-light);
+    box-shadow: 0px 0px 2px 0px solid var(--black-light);
+  }
+  
+  .nav-search {
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    width: 50%;
+  }
+  
+  .nav-search input {
+    border: 0.08rem solid var(--black-light);
+  }
+  
+  .search-placeholder {
+    position: absolute;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--black-light);
+    color: var(--white);
+  }
+  .nav-part2
+  {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+  .color-black-light
+  {
+      color: var(--black-light);
+  }
+  
