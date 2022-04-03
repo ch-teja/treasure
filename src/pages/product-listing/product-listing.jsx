@@ -1,37 +1,83 @@
 import "./product-listing.css";
 import {useReducer} from "react";
 import { productsList } from "../../back-end/products-db";
-import {productListReducerFunc,getSortBy,getFilterByRating} from "../../functions/product-list-reducer.js"
+import {productListReducerFunc} from "../../functions/product-list-reducer.js";
+import {getSortBy,getFilterByRating,getFilterByCategory,getFilterByPrice} from "../../functions/filters-sorts.js"
 const allProducts = productsList;
 const ProductListing = () =>
 {
     const [state,dispatch] = useReducer(productListReducerFunc,{
         rating:0,
-        sortBy:""
+        sortBy:"",
+        categoryFilterBy:{
+            rings:false,
+            bangles:false,
+            necklace:false,
+            earrings:false,
+            pendants:false
+        },
+        price:25000,
     })
-    console.log(state.sortBy)
-    const sortList = getSortBy(allProducts,state.sortBy)
-    const finalProducts = getFilterByRating(sortList,state.rating)
-
+    const categoryFilterProducts = getFilterByCategory(allProducts,state.categoryFilterBy.rings,state.categoryFilterBy.bangles,state.categoryFilterBy.necklace,
+        state.categoryFilterBy.earrings,state.categoryFilterBy.pendants)
+    const ratingFilteredProducts = getFilterByRating(categoryFilterProducts,state.rating)
+    const priceFilteredProducts = getFilterByPrice(ratingFilteredProducts,state.price)
+    const finalProducts = getSortBy(priceFilteredProducts,state.sortBy)
+    console.log(finalProducts)
+    // const clearFunc = () => {console.log("Clear function")}
     return(
         <div className="prod-page">
             <div className="aside">
                 <div className="filter">
                     <h3>Filters</h3>
-                    <p>Clear</p>
+                    <button onClick={() => dispatch({type:"CLEAR-FILTER"})}>Clear</button>
                 </div>
                 <div className="filter-item price">
                     <h4>Price</h4>
-                    <input type="range" id="price" name="price" step="100"
-                    min="50" max="1000" />
+                    <p>0 - {state.price}</p>
+                    <input
+                        type="range" 
+                        id="price" 
+                        name="price"
+                        step="5000"
+                        min="0"
+                        max="25000"
+                        value={state.price}
+                        onChange={((e)=>dispatch({type:"FILTER-BY-PRICE",value:e.target.value}))}
+                    />
                 </div>
                 <div className="filter-item category">
                     <h3>Category</h3>
-                    <input type="checkbox" className="check-box" /><label for="rings">Rings</label><br />
-                    <input type="checkbox" className="check-box" /><label for="bangles">Bangles</label><br />
-                    <input type="checkbox" className="check-box" /><label for="necklace">Necklace</label><br />
-                    <input type="checkbox" className="check-box" /><label for="earrings">Earrings</label><br />
-                    <input type="checkbox" className="check-box" /><label for="pendants">Pendants</label> 
+                    <input 
+                        type="checkbox"
+                        className="check-box"
+                        checked = {state.categoryFilterBy.rings}
+                        onChange = {(e) => dispatch({type:"CATEGORY-FILTER-RINGS"})}
+                    /><label for="rings">Rings</label><br />
+                    <input 
+                        type="checkbox" 
+                        className="check-box" 
+                        checked = {state.categoryFilterBy.bangles}
+                        onChange = {(e)=>dispatch({type:"CATEGORY-FILTER-BANGLES"})}
+                    /><label for="bangles">Bangles</label><br />
+                    <input 
+                        type="checkbox"
+                        className="check-box"
+                        checked = {state.categoryFilterBy.necklace}
+                        onChange = {(e)=>dispatch({type:"CATEGORY-FILTER-NECKLACE"})}
+                      /><label for="necklace">Necklace</label><br />
+                    <input 
+                        type="checkbox" 
+                        className="check-box"
+                        checked = {state.categoryFilterBy.earrings}
+                        onChange = {(e)=>dispatch({type:"CATEGORY-FILTER-EARRINGS"})}
+                     /><label for="earrings">Earrings</label><br />
+                    <input 
+                        type="checkbox" 
+                        className="check-box"
+                        checked = {state.categoryFilterBy.pendants}
+                        onChange = {(e)=>dispatch({type:"CATEGORY-FILTER-PENDANTS"})}
+                     /><label for="pendants">Pendants</label> 
                 </div>
                 <div className="filter-item rating">
                     <h3>Rating</h3>

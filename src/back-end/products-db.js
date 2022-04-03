@@ -124,9 +124,7 @@ const productsList =
         "rating":3.7,
         "price":7000,
         "category":"bangles",  
-    },
-   
-    
+    },   
 ]
 
 export {categoryList,productsList}

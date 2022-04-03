@@ -2,6 +2,20 @@ const productListReducerFunc = (state,action) =>
 {
     switch(action.type)
     {
+        case "CLEAR-FILTER":
+            return{
+                ...state,
+                rating:0,
+                sortBy:"",
+                categoryFilterBy:{
+                    rings:false,
+                    bangles:false,
+                    necklace:false,
+                    earrings:false,
+                    pendants:false
+                },
+                price:25000,
+            }
         case "RATING":
             return{
                 ...state,
@@ -12,6 +26,51 @@ const productListReducerFunc = (state,action) =>
                 ...state,
                 sortBy:action.value
             }
+        case "CATEGORY-FILTER-RINGS":
+            return{
+                ...state,
+                categoryFilterBy:{
+                    ...state["categoryFilterBy"],
+                    rings: !state.categoryFilterBy.rings
+                }
+            }
+        case "CATEGORY-FILTER-BANGLES":
+            return{
+                ...state,
+                categoryFilterBy:{
+                    ...state["categoryFilterBy"],
+                    bangles: !state.categoryFilterBy.bangles
+                }
+            }
+        case "CATEGORY-FILTER-NECKLACE":
+            return{
+                ...state,
+                categoryFilterBy:{
+                    ...state["categoryFilterBy"],
+                    necklace: !state.categoryFilterBy.necklace
+                }
+            }
+        case "CATEGORY-FILTER-EARRINGS":
+            return{
+                ...state,
+                categoryFilterBy:{
+                    ...state["categoryFilterBy"],
+                    earrings: !state.categoryFilterBy.earrings
+                }
+            }
+        case "CATEGORY-FILTER-PENDANTS":
+            return{
+                ...state,
+                categoryFilterBy:{
+                    ...state["categoryFilterBy"],
+                    pendants: !state.categoryFilterBy.pendants
+                }
+            }
+        case "FILTER-BY-PRICE":
+            return{
+                ...state,
+                price:action.value
+            }
         default:
             return{
                 ...state
@@ -19,22 +78,4 @@ const productListReducerFunc = (state,action) =>
     }
 }
 
-const getSortBy = (allProducts,sortBy) =>
-{
-    if(sortBy === "lowToHigh")
-    {
-        return allProducts.sort((item1,item2) => item1.price-item2.price)
-    }
-    if(sortBy === "highToLow")
-    {
-        return allProducts.sort((item1,item2) => item2.price-item1.price)
-    }
-    console.log("something wrong")
-    return allProducts
-}
-const getFilterByRating = (allProducts,rating) =>
-{
-    return allProducts.filter((pro) => pro.rating >= rating)
-}
-
-export {productListReducerFunc,getSortBy,getFilterByRating}
+export {productListReducerFunc}
