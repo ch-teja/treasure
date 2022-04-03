@@ -41,7 +41,7 @@ const productsList =
         "name":"Embrace Ring",
         "subText":"by GIVA jewellery",
         "rating":4.6,
-        "price":10000,
+        "price":4000,
         "category":"rings",  
     },
     {
@@ -50,7 +50,7 @@ const productsList =
         "name":"Stoned Necklace",
         "subText":"by GIVA jewellery",
         "rating":3.5,
-        "price":12000,
+        "price":22000,
         "category":"necklace",  
     },
     {
@@ -86,7 +86,7 @@ const productsList =
         "name":"Stoned bangle",
         "subText":"by tej jewellery",
         "rating":4.5,
-        "price":9000,
+        "price":18000,
         "category":"bangles",  
     },
     {

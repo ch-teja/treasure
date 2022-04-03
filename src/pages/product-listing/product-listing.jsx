@@ -18,7 +18,7 @@ const ProductListing = () =>
             <div className="aside">
                 <div className="filter">
                     <h3>Filters</h3>
-                    <button onClick={() => dispatch({type:"CLEAR-FILTER"})}>Clear</button>
+                    <button className="clear-btn" onClick={() => dispatch({type:"CLEAR-FILTER"})}><b>Clear</b></button>
                 </div>
                 <div className="filter-item price">
                     <h4>Price</h4>
