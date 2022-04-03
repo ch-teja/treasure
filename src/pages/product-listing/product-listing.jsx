@@ -90,7 +90,7 @@ const ProductListing = () =>
                     <input type="radio"
                             className="radio-btn"
                             name="rating"
-                            checked={state.rating === 2}
+                            checked={state.rating === 1}
                             onChange = {(e)=>dispatch({type:"RATING",value:1})}
                        /><label for="">1 Star and above</label><br />
                 </div>
