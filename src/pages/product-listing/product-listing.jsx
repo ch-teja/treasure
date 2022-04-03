@@ -1,30 +1,18 @@
 import "./product-listing.css";
-import {useReducer} from "react";
 import { productsList } from "../../back-end/products-db";
-import {productListReducerFunc} from "../../functions/product-list-reducer.js";
-import {getSortBy,getFilterByRating,getFilterByCategory,getFilterByPrice} from "../../functions/filters-sorts.js"
+import {getSortBy,getFilterByRating,getFilterByCategory,getFilterByPrice} from "../../functions/filters-sorts.js";
+import { useProductListing } from "../../context/product-listing-context";
 const allProducts = productsList;
 const ProductListing = () =>
 {
-    const [state,dispatch] = useReducer(productListReducerFunc,{
-        rating:0,
-        sortBy:"",
-        categoryFilterBy:{
-            rings:false,
-            bangles:false,
-            necklace:false,
-            earrings:false,
-            pendants:false
-        },
-        price:25000,
-    })
+    const {state} = useProductListing()
+    const {dispatch} = useProductListing()
     const categoryFilterProducts = getFilterByCategory(allProducts,state.categoryFilterBy.rings,state.categoryFilterBy.bangles,state.categoryFilterBy.necklace,
         state.categoryFilterBy.earrings,state.categoryFilterBy.pendants)
     const ratingFilteredProducts = getFilterByRating(categoryFilterProducts,state.rating)
     const priceFilteredProducts = getFilterByPrice(ratingFilteredProducts,state.price)
     const finalProducts = getSortBy(priceFilteredProducts,state.sortBy)
     console.log(finalProducts)
-    // const clearFunc = () => {console.log("Clear function")}
     return(
         <div className="prod-page">
             <div className="aside">
