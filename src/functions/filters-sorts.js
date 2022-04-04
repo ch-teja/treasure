@@ -47,7 +47,6 @@ const getSortBy = (allProducts,sortBy) =>
     {
         return allProducts.sort((item1,item2) => item2.price-item1.price)
     }
-    console.log("something wrong")
     return allProducts
 }
 const getFilterByRating = (allProducts,rating) =>
