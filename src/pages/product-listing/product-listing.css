@@ -4,6 +4,13 @@
     border-radius: 0px;
     color:var(--white);
     width: 100%; 
+    cursor: pointer;
+}
+.product-card-button:hover
+{
+    background-color: var(--gold-light);
+    color: var(--gold-color);
+    border: 1.5px solid var(--gold-color);
 }
 .badge
 {
@@ -71,4 +78,18 @@ main h2{
     width: 0.85rem;
     height: 0.85rem;
     margin-right: 0.3rem;  
+}
+.clear-btn
+{
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--gold-light);
+    color: var(--black-light);   
+}
+.clear-btn:hover
+{
+    padding: 0.45rem 0.8rem;
+   border: 1px solid var(--gold-color);
+   cursor: pointer;
+   text-decoration: underline;   
 }

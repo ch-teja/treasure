@@ -10,26 +10,32 @@ const categoryList = [
     {"_id":uuid(),
     "categoryName":"Rings",
     "image":ringCat ,
+    "filterBy":"CATEGORY-FILTER-RINGS",
     },
     {"_id":uuid(),
     "categoryName":"Necklace",
     "image":necklaceCat ,
+    "filterBy":"CATEGORY-FILTER-NECKLACE",
     },
     {"_id":uuid(),
     "categoryName":"Earrings",
     "image":earringsCat ,
+    "filterBy":"CATEGORY-FILTER-EARRINGS",
     },
     {"_id":uuid(),
     "categoryName":"Bangles",
     "image":banglesCat ,
+    "filterBy":"CATEGORY-FILTER-BANGLES",
     },
     {"_id":uuid(),
     "categoryName":"Pendants",
     "image":pendantCat ,
+    "filterBy":"CATEGORY-FILTER-PENDANTS",
     },
     {"_id":uuid(),
     "categoryName":"Earrings",
     "image":earringsCat ,
+    "filterBy":"CATEGORY-FILTER-EARRINGS",
     },  
 ]
 
@@ -41,7 +47,7 @@ const productsList =
         "name":"Embrace Ring",
         "subText":"by GIVA jewellery",
         "rating":4.6,
-        "price":10000,
+        "price":4000,
         "category":"rings",  
     },
     {
@@ -50,7 +56,7 @@ const productsList =
         "name":"Stoned Necklace",
         "subText":"by GIVA jewellery",
         "rating":3.5,
-        "price":12000,
+        "price":22000,
         "category":"necklace",  
     },
     {
@@ -86,7 +92,7 @@ const productsList =
         "name":"Stoned bangle",
         "subText":"by tej jewellery",
         "rating":4.5,
-        "price":9000,
+        "price":18000,
         "category":"bangles",  
     },
     {
@@ -124,9 +130,7 @@ const productsList =
         "rating":3.7,
         "price":7000,
         "category":"bangles",  
-    },
-   
-    
+    },   
 ]
 
 export {categoryList,productsList}

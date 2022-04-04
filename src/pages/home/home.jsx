@@ -2,11 +2,11 @@ import "./home.css";
 import {Link} from "react-router-dom";
 import heroImg from "../../asserts/category-images/heroImg.jpg"
 import { categoryList } from "../../back-end/products-db";
-
 import pendantCat from "../../asserts/category-images/pendantCat.jpg"
-
+import { useProductListing } from "../../context/product-listing-context";
 const Home = () =>
 {
+    const {dispatch} = useProductListing()
     return(
         <div>
         <section id="page">
@@ -15,8 +15,10 @@ const Home = () =>
         {
             categoryList.map((item) => (
             <span className= "img-text-center" key={item._id}>
+                <Link to = "/productlist" onClick={()=>dispatch({type:item.filterBy})}>
                 <img src={item.image} className="img-responsive" alt="catagory_image" />
                 <p className="img-text"><b>{item.categoryName}</b></p>
+                </Link>
             </span>
             ))
         }
