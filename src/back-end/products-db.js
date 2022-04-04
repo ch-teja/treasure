@@ -48,7 +48,9 @@ const productsList =
         "subText":"by GIVA jewellery",
         "rating":4.6,
         "price":4000,
+        "originalPrice":4500,
         "category":"rings",  
+        "cartQuantity":1,
     },
     {
         "_id":uuid(),
@@ -57,7 +59,9 @@ const productsList =
         "subText":"by GIVA jewellery",
         "rating":3.5,
         "price":22000,
-        "category":"necklace",  
+        "originalPrice":25000,
+        "category":"necklace", 
+        "cartQuantity":1, 
     },
     {
         "_id":uuid(),
@@ -66,7 +70,9 @@ const productsList =
         "subText":"by yellow jewellery",
         "rating":4.8,
         "price":9999,
-        "category":"pendents",  
+        "originalPrice":10999,
+        "category":"pendents", 
+        "cartQuantity":1, 
     },
     {
         "_id":uuid(),
@@ -75,7 +81,9 @@ const productsList =
         "subText":"plated silver stone",
         "rating":3.8,
         "price":9500,
+        "originalPrice":10000,
         "category":"rings",  
+        "cartQuantity":1,
     },
     {
         "_id":uuid(),
@@ -84,7 +92,9 @@ const productsList =
         "subText":"by yellow gold jewellery",
         "rating":2.5,
         "price":15000,
-        "category":"necklace",  
+        "originalPrice":17000,
+        "category":"necklace", 
+        "cartQuantity":1, 
     },
     {
         "_id":uuid(),
@@ -93,7 +103,9 @@ const productsList =
         "subText":"by tej jewellery",
         "rating":4.5,
         "price":18000,
+        "originalPrice":20000,
         "category":"bangles",  
+        "cartQuantity":1,
     },
     {
         "_id":uuid(),
@@ -102,8 +114,10 @@ const productsList =
         "subText":"by yellow gold jewellery",
         "rating":3.5,
         "price":8000,
+        "originalPrice":8500,
         "category":"rings",  
-    },
+        "cartQuantity":1,
+     },
     {
         "_id":uuid(),
         "image":pendantCat,
@@ -111,7 +125,9 @@ const productsList =
         "subText":"by ahalya jewellery",
         "rating":2.8,
         "price":7999,
-        "category":"pendents",  
+        "originalPrice":10000,
+        "category":"pendents", 
+        "cartQuantity":1, 
     },
     {
         "_id":uuid(),
@@ -120,7 +136,9 @@ const productsList =
         "subText":"by yellow jewellery",
         "rating":4.8,
         "price":10999,
-        "category":"earrings",  
+        "originalPrice":16000,
+        "category":"earrings", 
+        "cartQuantity":1, 
     },
     {
         "_id":uuid(),
@@ -129,7 +147,9 @@ const productsList =
         "subText":"by yellow jewellery",
         "rating":3.7,
         "price":7000,
+        "originalPrice":9000,
         "category":"bangles",  
+        "cartQuantity":1,
     },   
 ]
 

@@ -1,14 +1,21 @@
-.product-card-button
-{
-    background-color: var(--gold-color);
-    border-radius: 0px;
-    color:var(--white);
-    width: 100%; 
-    cursor: pointer;
+.card{
+    z-index: 0;
 }
+.btn-width-100
+{
+    width: 100%;
+}
+.outline-gold-btn:hover{
+    border: 1.8px solid var(--gold-dark);
+}
+.filled-gold-btn:hover
+{
+    background-color: var(--gold-dark);
+}
+
 .product-card-button:hover
 {
-    background-color: var(--gold-light);
+    background-color: var(--gold-light) ;
     color: var(--gold-color);
     border: 1.5px solid var(--gold-color);
 }

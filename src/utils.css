@@ -1,4 +1,18 @@
 :root{
     --gold-color : #daa520;
     --gold-light :  #fff9e66b;
+    --gold-dark: #cd9812;
+}
+
+.outline-gold-btn
+{
+    padding: 0.3rem 0.5rem;
+    border-radius: 0px;
+    border: 1.5px solid var(--gold-color);
+    background-color: var(--gold-light);
+}
+.filled-gold-btn{
+    border-radius: 0px;
+    background-color: var(--gold-color);
+    color: var(--white);
 }

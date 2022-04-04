@@ -1,18 +1,22 @@
 import "./product-listing.css";
+import {Link} from "react-router-dom";
 import { productsList } from "../../back-end/products-db";
 import {getSortBy,getFilterByRating,getFilterByCategory,getFilterByPrice} from "../../functions/filters-sorts.js";
 import { useProductListing } from "../../context/product-listing-context";
+import {useCart} from "../../context/cart-context"
 const allProducts = productsList;
+
 const ProductListing = () =>
 {
     const {state} = useProductListing()
     const {dispatch} = useProductListing()
+    const {cartDispatch,cartState} = useCart()
     const categoryFilterProducts = getFilterByCategory(allProducts,state.categoryFilterBy.rings,state.categoryFilterBy.bangles,state.categoryFilterBy.necklace,
         state.categoryFilterBy.earrings,state.categoryFilterBy.pendants)
     const ratingFilteredProducts = getFilterByRating(categoryFilterProducts,state.rating)
     const priceFilteredProducts = getFilterByPrice(ratingFilteredProducts,state.price)
     const finalProducts = getSortBy(priceFilteredProducts,state.sortBy)
-    console.log(finalProducts)
+    const cartList = cartState.cartList
     return(
         <div className="prod-page">
             <div className="aside">
@@ -112,8 +116,8 @@ const ProductListing = () =>
             </div>
 
             <main>
-                <div className="products">
-                    {
+                <div className="products"> 
+                    { 
                         finalProducts.map((pro)=>(
                             <div className="card" key={pro._id}>
                                 <img className="card-img" src={pro.image} alt="card_image" />
@@ -123,9 +127,14 @@ const ProductListing = () =>
                                         <h3>{pro.name}</h3>
                                         <p className="desc">{pro.subText}</p>
                                     </div>
-                                    <div className="price">Rs.{pro.price} <s className="price-off">Rs.25000</s><span className="rating-text">{pro.rating} <span class="fa fa-star rated"></span></span> </div>
+                                    <div className="price">Rs.{pro.price} <s className="price-off">Rs.{pro.originalPrice}</s><span className="rating-text">{pro.rating} <span class="fa fa-star rated"></span></span> </div>
                                     <div className="button-block">
-                                        <button className="btn product-card-button">Add to cart <i className="fa fa-shopping-cart"></i></button>
+                                        {
+                                            cartList.find((item) => item._id === pro._id) ? 
+                                            <button className="btn outline-gold-btn btn-width-100"><Link to="/cart" className="no-decoration color-black"> Go to cart <i className="fa fa-shopping-cart"></i></Link></button> 
+                                            : <button className="btn filled-gold-btn btn-width-100" onClick={(e) => cartDispatch({type:"ADD-TO-CART",value:pro})}>Add to cart <i className="fa fa-shopping-cart"></i></button>
+                                        }
+                                        
                                     </div>
                                 </div>
                             </div>

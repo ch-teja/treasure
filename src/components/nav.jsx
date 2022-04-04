@@ -1,7 +1,10 @@
 import {Link} from "react-router-dom";
-import "./nav.css"
+import "./nav.css";
+import {useCart} from "../context/cart-context.js"
 const Nav = () =>
 {
+    const {cartState} = useCart()
+    const cartItems = cartState.cartItems
     return(
         <nav className="basic-navbar">
         <div className="nav-brand"><h2><Link to="/home" className="no-decoration color-black-light">Treasure</Link></h2></div>
@@ -19,7 +22,7 @@ const Nav = () =>
             <li class="nav-item list-item-inline"><Link to="/cart" className="no-decoration color-black-light">
                     <span className="badge-on-icon">
                         <i className="fa fa-shopping-cart icon icon-outline"></i>
-                        <span className="icon-badge">6</span>
+                        <span className="icon-badge">{cartItems}</span>
                     </span></Link>
             </li>
         </ul>

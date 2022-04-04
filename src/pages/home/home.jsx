@@ -10,8 +10,7 @@ const Home = () =>
     return(
         <div>
         <section id="page">
-        <header className="cat">
-          
+        <header className="cat"> 
         {
             categoryList.map((item) => (
             <span className= "img-text-center" key={item._id}>
