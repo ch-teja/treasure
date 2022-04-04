@@ -3,7 +3,7 @@
     padding: 2rem;
 }
 
-#cart-page
+.cart-page
 {
     display: grid;
     width: auto;
