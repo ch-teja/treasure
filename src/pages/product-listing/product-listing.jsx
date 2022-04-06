@@ -9,12 +9,13 @@ import {
 } from "../../functions/filters-sorts.js";
 import { useProductListing } from "../../context/product-listing-context";
 import { useCart } from "../../context/cart-context";
+import { useWishList } from "../../context/wish-list-context";
 const allProducts = productsList;
-
 const ProductListing = () => {
   const { state } = useProductListing();
   const { dispatch } = useProductListing();
   const { cartDispatch, cartState } = useCart();
+  const { wishListState, wishListDispatch } = useWishList();
   const categoryFilterProducts = getFilterByCategory(
     allProducts,
     state.categoryFilterBy.rings,
@@ -169,9 +170,29 @@ const ProductListing = () => {
           {finalProducts.map((pro) => (
             <div className="card" key={pro._id}>
               <img className="card-img" src={pro.image} alt="card_image" />
-              <span className="badge">
-                <i className="fa fa-heart-o"></i>
-              </span>
+              {wishListState.wishList.find((item) => item._id === pro._id) ? (
+                <span
+                  className="badge"
+                  onClick={() =>
+                    wishListDispatch({
+                      type: "REMOVE-FROM-WISHLIST",
+                      value: pro,
+                    })
+                  }
+                >
+                  <i className="fa fa-heart color-heart"></i>
+                </span>
+              ) : (
+                <span
+                  className="badge"
+                  onClick={() =>
+                    wishListDispatch({ type: "ADD-TO-WISHLIST", value: pro })
+                  }
+                >
+                  <i className="fa fa-heart-o"></i>
+                </span>
+              )}
+
               <div className="card-info">
                 <div className="title">
                   <h3>{pro.name}</h3>

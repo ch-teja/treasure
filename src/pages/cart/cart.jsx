@@ -1,8 +1,10 @@
 import { useCart } from "../../context/cart-context.js";
+import { useWishList } from "../../context/wish-list-context.js";
 import "./cart.css";
 import { Link } from "react-router-dom";
 const Cart = () => {
   const { cartState, cartDispatch } = useCart();
+  const { wishListDispatch } = useWishList();
   const cartList = cartState.cartList;
   const discount = cartState.discount;
   const totalPrice = cartState.totalPrice;
@@ -66,7 +68,13 @@ const Cart = () => {
                   >
                     Remove
                   </button>
-                  <button className="btn filled-gold-btn">
+                  <button
+                    className="btn filled-gold-btn"
+                    onClick={() => {
+                      wishListDispatch({ type: "ADD-TO-WISHLIST", value: pro });
+                      cartDispatch({ type: "REMOVE-FROM-CART", value: pro });
+                    }}
+                  >
                     Move to wishlist
                   </button>
                 </div>

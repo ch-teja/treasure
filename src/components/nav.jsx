@@ -1,10 +1,13 @@
 import {Link} from "react-router-dom";
 import "./nav.css";
 import {useCart} from "../context/cart-context.js"
+import { useWishList } from "../context/wish-list-context";
 const Nav = () =>
 {
     const {cartState} = useCart()
     const cartItems = cartState.cartItems
+    const { wishListState } = useWishList();
+    const wishListItems = wishListState.wishListItems
     return(
         <nav className="basic-navbar">
         <div className="nav-brand"><h2><Link to="/home" className="no-decoration color-black-light">Treasure</Link></h2></div>
@@ -16,7 +19,7 @@ const Nav = () =>
             <li className="nav-item list-item-inline"><Link to="/wishlist" className="no-decoration color-black-light">
                     <span className="badge-on-icon">
                         <i className="fa fa-heart icon icon-outline"></i>
-                        <span className="icon-badge">10</span>
+                        <span className="icon-badge">{wishListItems}</span>
                     </span></Link>
             </li>
             <li class="nav-item list-item-inline"><Link to="/cart" className="no-decoration color-black-light">
