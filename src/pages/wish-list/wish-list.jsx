@@ -7,7 +7,7 @@ const WishList = () => {
   const { wishListDispatch, wishListState } = useWishList();
   const { cartDispatch } = useCart();
   const wishList = wishListState.wishList;
-  return wishList.lenght === 0 ? (
+  return wishList.length === 0 ? (
     <div className="center-text">
       <h2>Wish-list is empty</h2>
       <button className="btn filled-gold-btn">
