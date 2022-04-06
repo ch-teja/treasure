@@ -44,7 +44,7 @@ const WishList = () => {
               </button>
 
               <button
-                className="btn outline-gold-btn btn-width-100"
+                className="btn outline-gold-btn btn-width-100 margin-top"
                 onClick={(e) => {
                   wishListDispatch({
                     type: "REMOVE-FROM-WISHLIST",

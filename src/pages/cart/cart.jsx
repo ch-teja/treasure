@@ -13,7 +13,7 @@ const Cart = () => {
       <h2 className="head-center">My Cart({cartState.cartItems})</h2>
       {cartState.cartItems === 0 ? (
         <div className="center-text">
-          <h3>Cart is empty</h3>
+          <h2>Cart is empty</h2>
           <button className="btn filled-gold-btn">
             <Link to="/productlist" className="no-decoration color-white">
               Start Shopping
