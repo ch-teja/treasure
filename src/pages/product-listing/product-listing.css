@@ -101,3 +101,10 @@ main h2{
    cursor: pointer;
    text-decoration: underline;   
 }
+.color-heart
+{
+    color: var(--red-color);
+}
+.fa-heart-o:hover{
+    color: var(--red-color);
+}
